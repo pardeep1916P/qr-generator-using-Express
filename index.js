@@ -7,15 +7,13 @@ import { fileURLToPath } from "url";
 const app = express();
 const port = 3000;
 
-// Get __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
@@ -24,7 +22,6 @@ app.get("/qr.html", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "qr.html"));
 });
 
-// QR generation as image (SVG stream)
 app.get("/generate-qr", (req, res) => {
   const text = req.query.data;
   if (!text) {
