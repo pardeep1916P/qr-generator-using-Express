@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Code Generator</title>
   <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background: linear-gradient(135deg, #ff6a00, #ee0979, #00c6ff);
     background-size: 300% 300%;
@@ -13,8 +19,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 16px;
   }
 
   @keyframes bgShift {
@@ -26,14 +32,14 @@
   .container {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-    padding: 40px;
+    padding: 32px 24px;
     border-radius: 20px;
     text-align: center;
     color: white;
     max-width: 400px;
-    width: 90%;
+    width: 100%;
     transition: transform 0.3s ease;
   }
 
@@ -42,9 +48,9 @@
   }
 
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-size: 2rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
 
   input {
@@ -52,9 +58,9 @@
     width: 100%;
     border-radius: 12px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-size: 1rem;
     outline: none;
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
@@ -76,6 +82,7 @@
     letter-spacing: 0.5px;
     box-shadow: 0 4px 15px rgba(0, 198, 255, 0.5);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 8px;
   }
 
   button:hover {
@@ -89,8 +96,8 @@
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    max-width: 250px;
-    width: 100%;
+    max-width: 100%;
+    width: 250px;
     transition: transform 0.3s ease;
   }
 
@@ -98,15 +105,78 @@
     transform: scale(1.05);
   }
 
+  /* ✅ Phones */
   @media (max-width: 480px) {
-    .container {
-      padding: 30px 20px;
+    body {
+      padding: 10px;
     }
+
+    .container {
+      padding: 24px 18px;
+      border-radius: 16px;
+    }
+
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+    }
+
+    input {
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+    }
+
+    img {
+      width: 180px;
+      padding: 6px;
+    }
+  }
+
+  /* ✅ Small Tablets */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .container {
+      padding: 28px 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    input {
+      font-size: 1rem;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 220px;
+    }
+  }
+
+  /* ✅ Large Tablets / Small Laptops */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+      padding: 30px 22px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    img {
+      width: 240px;
     }
   }
 </style>
+
+
 
 </head>
 <body>
